@@ -6,6 +6,7 @@ export default defineConfig({
   dts: true,
   format: ["cjs", "esm"],
   clean: true,
+  shims: true,
   plugins: [
     {
       name: "Copy package files",

@@ -36,6 +36,16 @@
         "types": "./index.d.mts",
         "import": "./index.mjs"
       }
+    },
+    "./node": {
+      "require": {
+        "types": "./node.d.ts",
+        "require": "./node.js"
+      },
+      "import": {
+        "types": "./node.d.mts",
+        "import": "./node.mjs"
+      }
     }
   },
   "devDependencies": {

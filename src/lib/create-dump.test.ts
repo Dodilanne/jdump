@@ -1,7 +1,8 @@
 import { expect, test, vi } from "vitest";
-import { type Json, type Location, type Storage, createDump } from "./";
+import { createDump } from "./create-dump";
+import type { Json, Location, Storage } from "./types";
 
-test("dump", () => {
+test("createDump", () => {
   let data: Json = { a: true };
   const storage: Storage = {
     write: vi.fn((json: unknown) => {
