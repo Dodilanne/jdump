@@ -3,11 +3,14 @@ import { createDump } from "./lib/create-dump";
 import { defaultLocation } from "./lib/defaults";
 import type { Json, Storage } from "./lib/types";
 
+// biome-ignore lint/suspicious/noExplicitAny:
+(BigInt.prototype as any).toJSON = function () {
+  return this.toString();
+};
+
 export const nodeStorage: Storage = {
   write(json: Json, path: string): void {
-    try {
-      writeFileSync(path, JSON.stringify(json));
-    } catch {}
+    writeFileSync(path, JSON.stringify(json));
   },
   read(path: string): Json {
     if (!existsSync(path)) {
@@ -22,9 +25,7 @@ export const nodeStorage: Storage = {
   },
   clear(path: string): void {
     if (existsSync(path)) {
-      try {
-        rmSync(path);
-      } catch {}
+      rmSync(path);
     }
   },
 };
