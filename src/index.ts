@@ -1,19 +1,25 @@
-export function dumpWrite(file: string) {}
+export type Json = unknown;
 
-export function dumpRead(file: string) {}
+export type Storage = {
+  write(json: Json, location: Location): void;
+  read(location: Location): Json;
+  clear(location: Location): void;
+};
 
-export function dumpClear(file: string) {}
+export type Location = {
+  path: string;
+  file: string;
+};
 
-export function createDump(file: string) {
-  const dump = () => dumpWrite(file);
-  dump.write = () => dumpWrite(file);
-  dump.read = () => dumpRead(file);
-  dump.clear = () => dumpClear(file);
+export type Options = {
+  location: Location;
+  storage: Storage;
+};
+
+export function createDump({ location, storage }: Options) {
+  const dump = (json: Json) => storage.write(json, location);
+  dump.write = (json: Json) => storage.write(json, location);
+  dump.read = () => storage.read(location);
+  dump.clear = () => storage.clear(location);
   return dump;
 }
-
-export function getDefaultFile() {
-  return "";
-}
-
-export const dump = createDump(getDefaultFile());
