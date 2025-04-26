@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-npm i json-dump
+npm i jdump
 ```
 
 ## Basic Usage

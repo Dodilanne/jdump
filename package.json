@@ -1,14 +1,14 @@
 {
-  "name": "json-dump",
+  "name": "jdump",
   "version": "0.0.0-alpha",
   "author": "Dodilanne",
   "bugs": {
-    "url": "https://github.com/dodilanne/json-dump/issues"
+    "url": "https://github.com/dodilanne/jdump/issues"
   },
-  "homepage": "https://github.com/dodilanne/json-dump",
+  "homepage": "https://github.com/dodilanne/jdump",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dodilanne/json-dump.git"
+    "url": "git+https://github.com/dodilanne/jdump.git"
   },
   "keywords": ["javascript", "typescript", "typesafe", "json", "deep", "merge"],
   "license": "MIT",
