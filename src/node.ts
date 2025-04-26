@@ -3,11 +3,6 @@ import { createDump } from "./lib/create-dump";
 import { defaultLocation } from "./lib/defaults";
 import type { Json, Storage } from "./lib/types";
 
-// biome-ignore lint/suspicious/noExplicitAny:
-(BigInt.prototype as any).toJSON = function () {
-  return this.toString();
-};
-
 export const nodeStorage: Storage = {
   write(json: Json, path: string): void {
     writeFileSync(path, JSON.stringify(json));
