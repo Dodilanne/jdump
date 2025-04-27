@@ -12,3 +12,10 @@ export type Options = {
   location: Location;
   storage: Storage;
 };
+
+export type Dump = {
+  (json: Json): void;
+  write(json: Json): void;
+  read(): unknown;
+  clear(): void;
+};
